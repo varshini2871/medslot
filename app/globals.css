@@ -1,26 +1,266 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #315C4C;
+  --primary-dark: #25483B;
+  --background: #F7F7F4;
+  --surface: #FFFFFF;
+  --text: #252B28;
+  --muted: #858B85;
+  --border: #E8EAE5;
+  --light-green: #EDF3EF;
+  --danger: #B94B4B;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Page layout */
+
+.ms-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.ms-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* Cards */
+
+.ms-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+}
+
+/* Typography */
+
+.ms-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.ms-subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ms-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Buttons */
+
+.ms-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 17px;
+  background: var(--primary);
+  color: white;
+  border: 1px solid var(--primary);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.ms-button:hover {
+  background: var(--primary-dark);
+}
+
+.ms-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 17px;
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ms-button-secondary:hover {
+  background: #F5F6F2;
+}
+
+/* Form elements */
+
+.ms-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ms-input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  outline: none;
+  background: white;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.ms-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(49, 92, 76, 0.08);
+}
+
+/* Status badges */
+
+.ms-badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ms-confirmed {
+  background: #EDF3EF;
+  color: #315C4C;
+}
+
+.ms-completed {
+  background: #EAF2EA;
+  color: #47765B;
+}
+
+.ms-pending {
+  background: #F5F0E5;
+  color: #967337;
+}
+
+.ms-cancelled,
+.ms-emergency {
+  background: #F8ECEB;
+  color: #B94B4B;
+}
+
+/* Tables */
+
+.ms-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.ms-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ms-table th {
+  padding: 13px 16px;
+  background: #F8F8F5;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.ms-table td {
+  padding: 15px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.ms-table tbody tr:hover {
+  background: #FAFAF8;
+}
+
+@media (max-width: 768px) {
+  .ms-content {
+    padding: 20px 15px;
+  }
+
+  .ms-title {
+    font-size: 21px;
+  }
+}
+/* BUTTON TEXT CONTRAST FIX */
+
+.ms-button,
+button.ms-button,
+a.ms-button {
+  background-color: #315C4C !important;
+  color: #FFFFFF !important;
+  border: 1px solid #315C4C;
+  font-weight: 600;
+}
+
+.ms-button:hover,
+button.ms-button:hover,
+a.ms-button:hover {
+  background-color: #25483B !important;
+  color: #FFFFFF !important;
+}
+
+.ms-button-secondary,
+button.ms-button-secondary,
+a.ms-button-secondary {
+  background-color: #FFFFFF !important;
+  color: #315C4C !important;
+  border: 1px solid #D9DED9;
+}
+
+.ms-button-secondary:hover,
+button.ms-button-secondary:hover,
+a.ms-button-secondary:hover {
+  background-color: #EDF3EF !important;
+  color: #25483B !important;
+}
+
+/* Ensure text remains readable inside green buttons */
+button.bg-\[\#315C4C\],
+a.bg-\[\#315C4C\] {
+  color: #FFFFFF !important;
 }

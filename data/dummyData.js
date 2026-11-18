@@ -1,0 +1,70 @@
+export const dummyPatients = [
+  {
+    id: 1,
+    name: "Aarav Sharma",
+    phone: "9876543210",
+    age: 24,
+    gender: "Male",
+  },
+  {
+    id: 2,
+    name: "Ananya Rao",
+    phone: "9876543211",
+    age: 32,
+    gender: "Female",
+  },
+  {
+    id: 3,
+    name: "Rahul Kumar",
+    phone: "9876543212",
+    age: 28,
+    gender: "Male",
+  },
+];
+
+export const dummyAppointments = [
+  {
+    id: "APT-1001",
+    patientName: "Aarav Sharma",
+    phone: "9876543210",
+    age: 24,
+    gender: "Male",
+    date: "2026-11-05",
+    time: "09:00",
+    reason: "Fever and headache",
+    emergency: false,
+    status: "Confirmed",
+    prescription: "",
+    createdAt: new Date().toISOString(),
+  },
+
+  {
+    id: "APT-1002",
+    patientName: "Ananya Rao",
+    phone: "9876543211",
+    age: 32,
+    gender: "Female",
+    date: "2026-11-05",
+    time: "09:30",
+    reason: "Regular health checkup",
+    emergency: false,
+    status: "Confirmed",
+    prescription: "",
+    createdAt: new Date().toISOString(),
+  },
+
+  {
+    id: "APT-1003",
+    patientName: "Rahul Kumar",
+    phone: "9876543212",
+    age: 28,
+    gender: "Male",
+    date: "2026-11-05",
+    time: "10:00",
+    reason: "Severe stomach pain",
+    emergency: true,
+    status: "Confirmed",
+    prescription: "",
+    createdAt: new Date().toISOString(),
+  },
+];
